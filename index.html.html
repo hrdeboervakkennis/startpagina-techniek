@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team Techniek – Startpagina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#071a3a;--panel:rgba(14,40,80,.55);--panel2:rgba(20,52,100,.75);--line:rgba(255,255,255,.12);--txt:#e9eff6;--mut:#8ea2b6;--el:#2bb5ff;--wb:#ff8a1f;--mx:#9db4cb;--sf:#ffd23f;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--txt);font:400 15px/1.45 Barlow,"Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--el);outline-offset:3px}
+/* achtergrond */
+.bg{position:fixed;inset:0;z-index:-1;background:linear-gradient(160deg,#0c2d62,#071a3a 60%,#05122a)}
+.bg svg{position:absolute;inset:0;width:100%;height:100%}
+.bg .photo{position:absolute;inset:0;background:var(--photo) center/cover no-repeat;opacity:.55}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,26,58,.78) 0%,rgba(7,26,58,.3) 55%,rgba(7,26,58,.7) 100%),linear-gradient(180deg,rgba(7,26,58,.15),rgba(5,18,42,.92) 92%)}
+.scan{position:absolute;left:0;right:0;height:240px;top:-240px;background:linear-gradient(180deg,transparent,rgba(43,181,255,.07),transparent);animation:scan 11s linear infinite}
+@keyframes scan{to{transform:translateY(130vh)}}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;gap:20px;padding:12px 32px;background:rgba(7,26,58,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;font:600 22px/1 "Barlow Condensed",sans-serif;letter-spacing:.02em}
+.brand i{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--el),var(--wb))}
+.brand small{display:block;font:400 12px Barlow,sans-serif;color:var(--mut);letter-spacing:0;margin-top:3px}
+.search{margin-left:auto;position:relative;width:min(340px,40vw)}
+.search input{width:100%;padding:9px 14px 9px 38px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--txt);font:inherit}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--mut)}
+.ibtn{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.05)}
+.ibtn:hover{border-color:var(--el)}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+/* hero */
+main{max-width:1320px;margin:0 auto;padding:0 32px 48px}
+.hero{display:grid;grid-template-columns:1fr 400px;gap:40px;align-items:end;padding:56px 0 34px}
+h1{margin:0;font:700 clamp(40px,5.2vw,68px)/.98 "Barlow Condensed",sans-serif;letter-spacing:.005em}
+.lead{margin:12px 0 26px;color:var(--mut);font-size:17px;max-width:46ch}
+.ctrl{display:flex;flex-wrap:wrap;gap:22px}
+.ctrl label{display:block;font-size:13px;color:var(--mut);margin-bottom:7px}
+.seg{display:inline-flex;padding:3px;border-radius:12px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.seg button{border:0;background:none;padding:8px 16px;border-radius:9px;font-weight:500;color:var(--mut);transition:.2s}
+.seg button[aria-pressed=true]{background:var(--txt);color:#0a0f15}
+.today{padding:22px;border-radius:18px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(16px);position:relative;overflow:hidden}
+.today::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,var(--mx))}
+.today .d{color:var(--mut);font-size:13px}
+.today h2{margin:6px 0 16px;font:600 28px/1.1 "Barlow Condensed",sans-serif}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.07);font-weight:600;text-decoration:none;color:var(--txt);transition:.2s}
+.btn:hover{background:var(--el);border-color:var(--el);color:#04121c}
+.btn.p{background:var(--el);border-color:var(--el);color:#04121c}
+.btn.p:hover{filter:brightness(1.12)}
+/* tegels */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:170px 128px 128px 128px;gap:16px}
+.tile{--c:var(--mx);position:relative;text-align:left;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 20px;border-radius:16px;border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(14px);overflow:hidden;transition:transform .25s,border-color .25s,background .25s,opacity .25s;animation:rise .55s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--n)*45ms)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+.tile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c)}
+.tile::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 0 0,color-mix(in srgb,var(--c) 22%,transparent),transparent 60%);opacity:.6;pointer-events:none;transition:opacity .25s}
+.tile:hover{transform:translateY(-3px);border-color:var(--c);background:var(--panel2)}
+.tile:hover::after{opacity:1}
+.tile .ic{position:absolute;left:20px;top:16px;display:grid;place-items:center;width:42px;height:42px;border-radius:11px;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.tile .go{position:absolute;right:16px;top:16px;width:18px;height:18px;color:var(--mut);transition:.25s}
+.tile:hover .go{color:var(--c);transform:translate(3px,-3px)}
+.tile h3{margin:0;font:600 25px/1.05 "Barlow Condensed",sans-serif;position:relative;z-index:1}
+.tile p{margin:3px 0 0;color:var(--mut);font-size:13.5px;position:relative;z-index:1}
+.tile.big h3{font-size:36px}
+.chips{position:absolute;right:18px;bottom:18px;display:flex;gap:6px;z-index:1}
+.chips span{font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mut);background:rgba(0,0,0,.25)}
+.badge{position:absolute;right:42px;top:18px;font-size:12px;padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c);z-index:1}
+.el{--c:var(--el)}.wb{--c:var(--wb)}.sf{--c:var(--sf)}
+.span2{grid-column:span 2}
+.dim{opacity:.28;filter:saturate(.4)}
+/* paneel */
+.veil{position:fixed;inset:0;z-index:30;background:rgba(3,6,10,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.25s}
+.veil.on{opacity:1;pointer-events:auto}
+aside{position:fixed;z-index:31;top:0;right:0;bottom:0;width:min(440px,100vw);padding:calc(28px + env(safe-area-inset-top,0px)) 28px 28px;background:rgba(8,28,62,.96);backdrop-filter:blur(20px);border-left:1px solid var(--line);transform:translateX(104%);transition:transform .35s cubic-bezier(.2,.7,.2,1);overflow-y:auto}
+aside.on{transform:none}
+aside .x{position:absolute;right:18px;top:calc(18px + env(safe-area-inset-top,0px))}
+aside .ic{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 45%,transparent)}
+aside .ic svg{width:28px;height:28px}
+aside h2{margin:16px 0 4px;font:700 40px/1 "Barlow Condensed",sans-serif}
+aside .s{color:var(--mut);margin:0 0 22px}
+.list{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:8px}
+.list a,.list div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--txt);text-decoration:none;transition:.2s}
+.list a:hover{border-color:var(--c);background:color-mix(in srgb,var(--c) 10%,transparent)}
+.list .dag{font:600 18px "Barlow Condensed",sans-serif;color:var(--c);min-width:28px}
+.list .row{display:flex;gap:14px;align-items:center}
+.list .now{border-color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
+.lv{display:grid;gap:10px;margin-bottom:24px}
+.lv button{text-align:left;padding:16px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);transition:.2s}
+.lv button b{display:block;font:600 24px "Barlow Condensed",sans-serif}
+.lv button span{color:var(--mut);font-size:13.5px}
+.lv button[aria-pressed=true]{border-color:var(--el);background:rgba(43,181,255,.12)}
+.chips2{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chips2 button{padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--mut);transition:.2s}
+.chips2 button[aria-pressed=true]{border-color:var(--c);color:var(--txt);background:color-mix(in srgb,var(--c) 16%,transparent)}
+.tag{font-size:12px;padding:2px 9px;border-radius:99px;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c);min-width:88px;text-align:center}
+#toast{position:fixed;left:50%;bottom:28px;z-index:40;transform:translate(-50%,30px);opacity:0;padding:11px 20px;border-radius:12px;background:#12305e;border:1px solid var(--line);transition:.3s;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1000px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:minmax(128px,auto)}.span2{grid-column:span 2}header{padding:12px 18px}main{padding:0 18px 40px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg" id="bg">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="pipe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb066"/><stop offset=".5" stop-color="#d9680f"/><stop offset="1" stop-color="#6b3205"/></linearGradient>
+      <linearGradient id="tray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a5d70"/><stop offset="1" stop-color="#1d2935"/></linearGradient>
+      <pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#fff" stroke-opacity=".04"/></pattern>
+      <radialGradient id="glow" cx=".78" cy=".35" r=".6"><stop offset="0" stop-color="#2bb5ff" stop-opacity=".22"/><stop offset="1" stop-color="#2bb5ff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1600" height="900" fill="url(#g)"/><rect width="1600" height="900" fill="url(#glow)"/>
+    <g opacity=".85">
+      <rect x="0" y="150" width="1600" height="26" fill="url(#tray)"/><rect x="0" y="190" width="1600" height="26" fill="url(#tray)"/>
+      <g stroke="#2bb5ff" stroke-width="3" opacity=".6"><path d="M0 163H1600"/><path d="M0 203H1600" stroke="#ffd23f"/></g>
+      <rect x="1000" y="0" width="30" height="900" fill="url(#pipe)"/><rect x="1060" y="0" width="22" height="900" fill="url(#pipe)" opacity=".7"/>
+      <rect x="980" y="330" width="122" height="34" rx="4" fill="#3a4856"/><rect x="980" y="560" width="122" height="34" rx="4" fill="#3a4856"/>
+      <rect x="1180" y="260" width="330" height="520" rx="10" fill="#1a232d" stroke="#3c4a59" stroke-width="3"/>
+      <g fill="#0d141b" stroke="#2f3c4a"><rect x="1210" y="300" width="270" height="52" rx="4"/><rect x="1210" y="372" width="270" height="52" rx="4"/><rect x="1210" y="444" width="270" height="52" rx="4"/><rect x="1210" y="516" width="270" height="52" rx="4"/></g>
+      <g fill="#ff8a1f"><rect x="1224" y="312" width="22" height="30" rx="2"/><rect x="1256" y="312" width="22" height="30" rx="2"/><rect x="1288" y="312" width="22" height="30" rx="2"/></g>
+      <g fill="#2bb5ff"><rect x="1224" y="384" width="22" height="30" rx="2"/><rect x="1256" y="384" width="22" height="30" rx="2"/><rect x="1288" y="384" width="22" height="30" rx="2"/><rect x="1320" y="384" width="22" height="30" rx="2"/></g>
+      <g fill="#35d49a"><circle cx="1230" cy="470" r="6"/><circle cx="1256" cy="470" r="6"/><circle cx="1282" cy="470" r="6"/></g>
+    </g>
+  </svg>
+  <div class="photo"></div><div class="scan"></div>
+</div>
+
+<header>
+  <div class="brand"><i><svg class="i" style="width:20px;height:20px;color:#04121c" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></i><div>Team Techniek<small>Installatietechniek, mbo</small></div></div>
+  <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg><input id="q" type="search" placeholder="Zoek op de startpagina  (druk op /)" aria-label="Zoeken"></label>
+  <button class="ibtn" id="photoBtn" title="Achtergrondfoto wijzigen" aria-label="Achtergrondfoto wijzigen"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m21 16-5-5-8 8"/></svg></button>
+  <input type="file" id="file" accept="image/*" hidden>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <h1>Welkom bij<br>Team Techniek</h1>
+      <p class="lead">Elektrotechnische en Werktuigbouwkundige Installaties. Kies je richting en niveau, dan pas ik de pagina aan.</p>
+      <div class="ctrl">
+        <div><label id="l1">Richting</label><div class="seg" id="segT" role="group" aria-labelledby="l1"></div></div>
+        <div><label id="l2">Niveau</label><div class="seg" id="segL" role="group" aria-labelledby="l2"></div></div>
+      </div>
+    </div>
+    <div class="today" id="today"></div>
+  </section>
+  <section class="grid" id="grid" aria-label="Onderdelen"></section>
+</main>
+
+<div class="veil" id="veil"></div>
+<aside id="panel" aria-hidden="true" aria-live="polite"></aside>
+<div id="toast" role="status"></div>
+
+<script>
+/* ===== Instellingen: pas hier links en de achtergrondfoto aan ===== */
+const PHOTO = ""; // plak hier een data:image/...-adres of laat leeg
+const URLS = { learnbeat:"https://www.learnbeat.nl", elektro:"#", werktuig:"#", praktijk:"#", stabicad:"#", eplan:"#", bpv:"#", portfolio:"#", veiligheid:"#", kennis:"#" };
+
+const IC = {
+ bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+ gear:'<circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/>',
+ layers:'<path d="M12 3 3 8l9 5 9-5zM3 13l9 5 9-5"/>',
+ cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ wrench:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
+ book:'<path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/>',
+ pen:'<path d="m4 20 4-1 11-11-3-3L5 16z"/><path d="m14 6 3 3"/>',
+ plan:'<rect x="3" y="4" width="6" height="5" rx="1"/><rect x="15" y="15" width="6" height="5" rx="1"/><path d="M9 6.5h4a2 2 0 0 1 2 2V15M6 9v6h9"/>',
+ case:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+ folder:'<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+ shield:'<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+ search:'<circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/>',
+ arrow:'<path d="M7 17 17 7M8 7h9v9"/>', x:'<path d="M6 6l12 12M18 6 6 18"/>'
+};
+const svg = (n,c='') => `<svg class="i ${c}" viewBox="0 0 24 24" aria-hidden="true">${IC[n]}</svg>`;
+
+const TILES = [
+ {id:'elektro',t:'Elektrotechniek',s:'Installaties, schakelingen, meten',i:'bolt',c:'el',big:1,tr:'E',items:['Schakelingen en installatieschema’s','Groepenverdeling en kabelberekening','Meten en testen','Domotica en sturing']},
+ {id:'werktuig',t:'Werktuigbouwkunde',s:'Leidingwerk, verwarming, klimaat',i:'gear',c:'wb',big:1,tr:'W',items:['Leidingwerk en verbindingen','Verwarming en koeling','Ventilatie en luchtbehandeling','Regeltechniek en inregelen']},
+ {id:'niveau',t:'Niveau 2, 3 en 4',s:'Kies jouw niveau',i:'layers'},
+ {id:'week',t:'Deze week',s:'Jouw planning',i:'cal',span:1},
+ {id:'praktijk',t:'Praktijkopdrachten',s:'Opdrachten en beoordeling',i:'wrench',items:['Opdrachten per niveau','Werkplekinstructies','Beoordelingsformulier','Inleveren en feedback']},
+ {id:'learnbeat',t:'Learnbeat',s:'Lessen en toetsen',i:'book',items:['Mijn lesmateriaal','Toetsen en resultaten','Huiswerk']},
+ {id:'stabicad',t:'Stabicad',s:'Installaties tekenen',i:'pen',tr:'B',items:['Aan de slag met Stabicad','Bibliotheek en symbolen','Tekeningen opleveren']},
+ {id:'eplan',t:'EPLAN',s:'Schema’s en projecten',i:'plan',tr:'E',items:['Eerste project in EPLAN','Symbolen en artikelen','Klemmenplan en rapportages']},
+ {id:'bpv',t:'BPV / stage',s:'Stage en leerbedrijf',i:'case',items:['Stageplaats vinden','Praktijkovereenkomst','Stagelogboek','Contact met je begeleider']},
+ {id:'portfolio',t:'Portfolio',s:'Bewijs van je vakmanschap',i:'folder',items:['Portfolio openen','Reflectieverslag','Bewijsstukken uploaden','Planning beoordeling']},
+ {id:'veiligheid',t:'Veiligheid, NEN 1010 en NEN 3140',s:'Veilig werken en normen',i:'shield',c:'sf',span:1,items:['Veilig werken: de basis','NEN 1010: eisen aan installaties','NEN 3140: bedrijfsvoering','Onveilige situatie melden']},
+ {id:'kennis',t:'Technische kennisbank',s:'Formules, normen, uitleg',i:'search',items:['Formules en tabellen','Normen en regelgeving','Uitlegvideo’s','Veelgestelde vragen']}
+];
+/* ===== Lesmateriaal =====
+   Per regel: [onderdeel, titel, soort, richting, niveaus, link]
+   onderdeel: elektro, werktuig, praktijk, learnbeat, stabicad, eplan, bpv, portfolio, veiligheid, kennis
+   soort: pdf, video, opdracht, presentatie, link      richting: E, W of B (beide)
+   link: deellink van SharePoint of Teams (Delen > Mensen binnen Firda). '#' = nog niet ingesteld */
+const SOORT = {pdf:'Pdf',video:'Video',opdracht:'Opdracht',presentatie:'Presentatie',link:'Link'};
+const MATERIAAL = [
+ ['elektro','Lampschakelingen: theorie en schema','pdf','E',[2],'#'],
+ ['elektro','Groepenschema opstellen','presentatie','E',[3],'#'],
+ ['elektro','Kabelberekening stap voor stap','video','E',[3,4],'#'],
+ ['elektro','Opdracht: meterkast uitbreiden','opdracht','E',[3],'#'],
+ ['elektro','Opdracht: installatieontwerp woning','opdracht','E',[4],'#'],
+ ['werktuig','Buis buigen en koppelen','video','W',[2],'#'],
+ ['werktuig','Leidingwerk en afpersen','pdf','W',[3],'#'],
+ ['werktuig','Hydraulisch inregelen','presentatie','W',[4],'#'],
+ ['werktuig','Opdracht: radiatorgroep aansluiten','opdracht','W',[2,3],'#'],
+ ['praktijk','Beoordelingsformulier praktijk','pdf','B',[2,3,4],'#'],
+ ['praktijk','Werkplekinstructie veilig werken','pdf','B',[2],'#'],
+ ['learnbeat','Lesmateriaal openen in Learnbeat','link','B',[2,3,4],URLS.learnbeat],
+ ['stabicad','Eerste tekening in Stabicad','video','B',[3,4],'#'],
+ ['eplan','Eerste project in EPLAN','video','E',[3,4],'#'],
+ ['bpv','Stagelogboek (sjabloon)','pdf','B',[2,3,4],'#'],
+ ['portfolio','Reflectieverslag: voorbeeld','pdf','B',[2,3,4],'#'],
+ ['veiligheid','Veilig werken: de basis','video','B',[2,3,4],'#'],
+ ['veiligheid','NEN 3140: werken onder spanning','presentatie','E',[3,4],'#'],
+ ['kennis','Formuleblad elektrotechniek','pdf','E',[2,3,4],'#'],
+ ['kennis','Formuleblad werktuigbouwkunde','pdf','W',[2,3,4],'#']
+];
+const pass = x => (state.track==='B'||x[3]==='B'||x[3]===state.track) && x[4].includes(state.level);
+const WEEK = {
+ 2:[['Ma','Veilig werken: werkplek en PBM','B'],['Di','Lampschakelingen bekabelen','E'],['Wo','Buis buigen en koppelen','W'],['Do','Praktijkopdracht 2.1 uitvoeren','B'],['Vr','Reflectie in je portfolio','B']],
+ 3:[['Ma','Groepenschema opstellen','E'],['Di','Leidingwerk verbinden en afpersen','W'],['Wo','Stabicad: installatietekening','B'],['Do','Meten en keuren (NEN 3140)','E'],['Vr','Praktijkopdracht 3.2 inleveren','B']],
+ 4:[['Ma','Ontwerp en berekeningen installatie','B'],['Di','EPLAN: stroomschema uitwerken','E'],['Wo','Hydraulisch inregelen','W'],['Do','Projectoverleg en planning','B'],['Vr','Portfolio-assessment voorbereiden','B']]
+};
+const LV = {2:'Basis vakmanschap: veilig werken en eenvoudige installaties.',3:'Zelfstandig vakman: uitvoeren, meten en tekenen.',4:'Technicus: ontwerpen, berekenen en coördineren.'};
+const TR = {B:'Beide',E:'Elektro',W:'Werktuigbouw'};
+const state = {track:'B', level:3, soort:'alle', open:null};
+const $ = s => document.querySelector(s);
+
+function weekItems(){ return WEEK[state.level].filter(w => state.track==='B' || w[2]==='B' || w[2]===state.track); }
+const colorOf = k => k==='E'?'var(--el)':k==='W'?'var(--wb)':'var(--mx)';
+function todayIdx(){ const d=new Date().getDay(); return d>=1&&d<=5?d-1:0; }
+function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('on'); clearTimeout(toast.h); toast.h=setTimeout(()=>t.classList.remove('on'),2200); }
+
+function seg(el, opts, key, after){
+  el.innerHTML = opts.map(([v,l]) => `<button type="button" data-v="${v}" aria-pressed="${String(state[key])===String(v)}">${l}</button>`).join('');
+  el.onclick = e => { const b=e.target.closest('button'); if(!b) return; state[key] = key==='level'?+b.dataset.v:b.dataset.v; after(); };
+}
+function renderHero(){
+  seg($('#segT'),Object.entries(TR),'track',update);
+  seg($('#segL'),[[2,'Niveau 2'],[3,'Niveau 3'],[4,'Niveau 4']],'level',update);
+  const items = weekItems(), w = items[Math.min(todayIdx(),items.length-1)] || items[0];
+  const td = $('#today'); td.style.setProperty('--c',colorOf(w[2]));
+  td.innerHTML = `<div class="d">Op ${w[0]==='Ma'?'maandag':w[0]==='Di'?'dinsdag':w[0]==='Wo'?'woensdag':w[0]==='Do'?'donderdag':'vrijdag'} · niveau ${state.level}</div><h2>${w[1]}</h2><button class="btn" data-open="week">Bekijk hele week</button>`;
+}
+function renderGrid(){
+  const q = $('#q').value.trim().toLowerCase();
+  $('#grid').innerHTML = TILES.map((t,n) => {
+    const hay = (t.t+' '+t.s+' '+(t.items||[]).join(' ')+' '+MATERIAAL.filter(x=>x[0]===t.id).map(x=>x[1]).join(' ')).toLowerCase();
+    const off = (t.tr==='E'&&state.track==='W') || (t.tr==='W'&&state.track==='E') || (q && !hay.includes(q));
+    const big = t.big ? ' big span2' : (t.id==='veiligheid'||t.id==='week') ? ' span2' : '';
+    const chips = t.big ? `<div class="chips">${t.items.slice(0,3).map(i=>`<span>${i.split(' ').slice(0,2).join(' ')}</span>`).join('')}</div>` : '';
+    const cnt = MATERIAAL.filter(x=>x[0]===t.id&&pass(x)).length;
+    const badge = (t.id==='niveau') ? `<span class="badge">Niveau ${state.level}</span>` : cnt ? `<span class="badge">${cnt} items</span>` : '';
+    return `<button class="tile ${t.c||''}${big}${off?' dim':''}" style="--n:${n}" data-open="${t.id}" aria-label="${t.t}"><span class="ic">${svg(t.i)}</span>${badge}${svg('arrow','go')}<h3>${t.t}</h3><p>${t.s}</p>${chips}</button>`;
+  }).join('');
+}
+function openPanel(id){
+  if(state.open!==id) state.soort='alle'; state.open=id;
+  const t = TILES.find(x=>x.id===id); const p = $('#panel');
+  p.style.setProperty('--c', t.c==='el'?'var(--el)':t.c==='wb'?'var(--wb)':t.c==='sf'?'var(--sf)':'var(--mx)');
+  let body='';
+  if(id==='niveau'){
+    body = `<div class="lv">${[2,3,4].map(n=>`<button data-lv="${n}" aria-pressed="${state.level===n}"><b>Niveau ${n}</b><span>${LV[n]}</span></button>`).join('')}</div>`;
+  } else if(id==='week'){
+    const ti = todayIdx();
+    body = `<ul class="list">${weekItems().map(w=>`<li><div class="${w[0]===WEEK[state.level][ti][0]?'now':''}"><span class="row"><span class="dag" style="color:${colorOf(w[2])}">${w[0]}</span>${w[1]}</span></div></li>`).join('')}</ul>`;
+  } else {
+    const all = MATERIAAL.filter(x=>x[0]===id);
+    if(!all.length){ body = `<ul class="list">${t.items.map(i=>`<li><a href="${URLS[id]}" target="_blank" rel="noopener" data-link="${URLS[id]}"><span>${i}</span>${svg('arrow')}</a></li>`).join('')}</ul>`; }
+    else {
+      const m = all.filter(pass), soorten = [...new Set(m.map(x=>x[2]))], f = soorten.includes(state.soort) ? state.soort : 'alle', sh = m.filter(x=>f==='alle'||x[2]===f);
+      body = soorten.length>1 ? `<div class="chips2">${['alle',...soorten].map(s=>`<button data-soort="${s}" aria-pressed="${f===s}">${s==='alle'?'Alles':SOORT[s]}</button>`).join('')}</div>` : '';
+      body += `<ul class="list">${sh.length ? sh.map(x=>`<li><a href="${x[5]}" target="_blank" rel="noopener" data-link="${x[5]}"><span class="row"><span class="tag">${SOORT[x[2]]}</span>${x[1]}</span>${svg('arrow')}</a></li>`).join('') : `<li><div>Nog geen materiaal voor niveau ${state.level}</div></li>`}</ul>`;
+    }
+    body += `<a class="btn p" href="${URLS[id]}" target="_blank" rel="noopener" data-link="${URLS[id]}">Open ${t.t.split(',')[0]}</a>`;
+  }
+  const sub = id==='week' ? `Niveau ${state.level}, ${TR[state.track].toLowerCase()}` : id==='niveau' ? `Nu gekozen: niveau ${state.level}` : t.s;
+  p.innerHTML = `<button class="ibtn x" data-close aria-label="Sluiten">${svg('x')}</button><div class="ic">${svg(t.i)}</div><h2>${t.t}</h2><p class="s">${sub}</p>${body}`;
+  p.classList.add('on'); p.setAttribute('aria-hidden','false'); $('#veil').classList.add('on');
+  p.querySelector('[data-close]').focus();
+}
+function closePanel(){ state.open=null; $('#panel').classList.remove('on'); $('#panel').setAttribute('aria-hidden','true'); $('#veil').classList.remove('on'); }
+function update(){ renderHero(); renderGrid(); }
+
+document.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]'); if(o){ openPanel(o.dataset.open); return; }
+  if(e.target.closest('[data-close]') || e.target.id==='veil'){ closePanel(); return; }
+  const so = e.target.closest('[data-soort]'); if(so){ state.soort=so.dataset.soort; openPanel(state.open); return; }
+  const lv = e.target.closest('[data-lv]'); if(lv){ state.level=+lv.dataset.lv; update(); openPanel('niveau'); return; }
+  const l = e.target.closest('[data-link]'); if(l && l.dataset.link==='#'){ e.preventDefault(); toast('Deze link is nog niet ingesteld'); }
+});
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape') closePanel();
+  if(e.key==='/' && document.activeElement.tagName!=='INPUT'){ e.preventDefault(); $('#q').focus(); }
+});
+$('#q').addEventListener('input', renderGrid);
+$('#photoBtn').onclick = () => $('#file').click();
+$('#file').onchange = e => { const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ $('#bg').style.setProperty('--photo',`url("${r.result}")`); toast('Foto ingesteld voor deze sessie'); }; r.readAsDataURL(f); };
+if(PHOTO) $('#bg').style.setProperty('--photo',`url("${PHOTO}")`);
+update();
+</script>
+</body>
+</html>
