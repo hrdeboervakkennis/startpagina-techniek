@@ -92,6 +92,7 @@ aside .s{color:var(--mut);margin:0 0 22px}
 .lv button b{display:block;font:600 24px "Barlow Condensed",sans-serif}
 .lv button span{color:var(--mut);font-size:13.5px}
 .lv button[aria-pressed=true]{border-color:var(--el);background:rgba(43,181,255,.12)}
+.tile.fo,.tile.fo:hover{background-image:linear-gradient(90deg,rgba(7,26,58,.9),rgba(7,26,58,.3)),var(--img);background-size:cover;background-position:center}
 .chips2{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .chips2 button{padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--mut);transition:.2s}
 .chips2 button[aria-pressed=true]{border-color:var(--c);color:var(--txt);background:color-mix(in srgb,var(--c) 16%,transparent)}
@@ -155,8 +156,9 @@ aside .s{color:var(--mut);margin:0 0 22px}
 
 <script>
 /* ===== Instellingen: pas hier links en de achtergrondfoto aan ===== */
-const PHOTO = ""; // plak hier een data:image/...-adres of laat leeg
-const URLS = { learnbeat:"https://www.learnbeat.nl", elektro:"#", werktuig:"#", praktijk:"#", stabicad:"#", eplan:"#", bpv:"#", portfolio:"#", veiligheid:"#", kennis:"#" };
+const I = (() => { try { const x = new XMLHttpRequest(); x.open('GET','inhoud.json?'+Date.now(),false); x.send(); return x.status===200 ? JSON.parse(x.responseText) : {}; } catch(e){ return {}; } })(); // inhoud.json komt uit de beheer-app; ontbreekt het, dan gelden de voorbeeldgegevens hieronder
+const PHOTO = I.photo || ""; // pad naar achtergrondfoto, bijvoorbeeld images/werkplaats.jpg
+const URLS = Object.assign({ learnbeat:"https://www.learnbeat.nl", elektro:"#", werktuig:"#", praktijk:"#", stabicad:"#", eplan:"#", bpv:"#", portfolio:"#", veiligheid:"#", kennis:"#" }, I.urls || {});
 
 const IC = {
  bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
@@ -195,7 +197,7 @@ const TILES = [
    soort: pdf, video, opdracht, presentatie, link      richting: E, W of B (beide)
    link: deellink van SharePoint of Teams (Delen > Mensen binnen Firda). '#' = nog niet ingesteld */
 const SOORT = {pdf:'Pdf',video:'Video',opdracht:'Opdracht',presentatie:'Presentatie',link:'Link'};
-const MATERIAAL = [
+const MATERIAAL = I.materiaal || [
  ['elektro','Lampschakelingen: theorie en schema','pdf','E',[2],'#'],
  ['elektro','Groepenschema opstellen','presentatie','E',[3],'#'],
  ['elektro','Kabelberekening stap voor stap','video','E',[3,4],'#'],
@@ -218,7 +220,7 @@ const MATERIAAL = [
  ['kennis','Formuleblad werktuigbouwkunde','pdf','W',[2,3,4],'#']
 ];
 const pass = x => (state.track==='B'||x[3]==='B'||x[3]===state.track) && x[4].includes(state.level);
-const WEEK = {
+const WEEK = I.week || {
  2:[['Ma','Veilig werken: werkplek en PBM','B'],['Di','Lampschakelingen bekabelen','E'],['Wo','Buis buigen en koppelen','W'],['Do','Praktijkopdracht 2.1 uitvoeren','B'],['Vr','Reflectie in je portfolio','B']],
  3:[['Ma','Groepenschema opstellen','E'],['Di','Leidingwerk verbinden en afpersen','W'],['Wo','Stabicad: installatietekening','B'],['Do','Meten en keuren (NEN 3140)','E'],['Vr','Praktijkopdracht 3.2 inleveren','B']],
  4:[['Ma','Ontwerp en berekeningen installatie','B'],['Di','EPLAN: stroomschema uitwerken','E'],['Wo','Hydraulisch inregelen','W'],['Do','Projectoverleg en planning','B'],['Vr','Portfolio-assessment voorbereiden','B']]
@@ -252,8 +254,9 @@ function renderGrid(){
     const big = t.big ? ' big span2' : (t.id==='veiligheid'||t.id==='week') ? ' span2' : '';
     const chips = t.big ? `<div class="chips">${t.items.slice(0,3).map(i=>`<span>${i.split(' ').slice(0,2).join(' ')}</span>`).join('')}</div>` : '';
     const cnt = MATERIAAL.filter(x=>x[0]===t.id&&pass(x)).length;
+    const foto = (I.fotos||{})[t.id];
     const badge = (t.id==='niveau') ? `<span class="badge">Niveau ${state.level}</span>` : cnt ? `<span class="badge">${cnt} items</span>` : '';
-    return `<button class="tile ${t.c||''}${big}${off?' dim':''}" style="--n:${n}" data-open="${t.id}" aria-label="${t.t}"><span class="ic">${svg(t.i)}</span>${badge}${svg('arrow','go')}<h3>${t.t}</h3><p>${t.s}</p>${chips}</button>`;
+    return `<button class="tile ${t.c||''}${big}${off?' dim':''}${foto?' fo':''}" style="--n:${n}${foto?`;--img:url('${foto}')`:''}" data-open="${t.id}" aria-label="${t.t}"><span class="ic">${svg(t.i)}</span>${badge}${svg('arrow','go')}<h3>${t.t}</h3><p>${t.s}</p>${chips}</button>`;
   }).join('');
 }
 function openPanel(id){
