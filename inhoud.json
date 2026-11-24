@@ -1,114 +1,9 @@
 {
  "photo": "",
- "tekst": {
-  "brand": "Team Installatie Techniek",
-  "sub": "Installatietechniek, mbo",
-  "titel": "Welkom bij\nTeam Techniek",
-  "lead": "E-Installaties en W-Installaties. Kies je richting en niveau, dan pas ik de pagina aan.",
-  "zoek": "Zoek op de startpagina  (druk op /)"
- },
- "kleuren": {
-  "el": "#2bb5ff",
-  "wb": "#ff8a1f",
-  "sf": "#ffd23f",
-  "bg": "#071a3a"
- },
- "tegels": [
-  {
-   "id": "elektro",
-   "t": "Elektrotechniek",
-   "s": "Installaties, schakelingen, meten",
-   "i": "bolt",
-   "c": "el",
-   "big": 1,
-   "tr": "E"
-  },
-  {
-   "id": "werktuig",
-   "t": "Werktuigbouwkunde",
-   "s": "Leidingwerk, verwarming, klimaat",
-   "i": "gear",
-   "c": "wb",
-   "big": 1,
-   "tr": "W"
-  },
-  {
-   "id": "niveau",
-   "t": "Niveau 2, 3 en 4",
-   "s": "Kies jouw niveau",
-   "i": "layers",
-   "c": ""
-  },
-  {
-   "id": "week",
-   "t": "Deze week",
-   "s": "Jouw planning",
-   "i": "cal",
-   "c": "",
-   "span": 1
-  },
-  {
-   "id": "praktijk",
-   "t": "Praktijkopdrachten",
-   "s": "Opdrachten en beoordeling",
-   "i": "wrench",
-   "c": ""
-  },
-  {
-   "id": "learnbeat",
-   "t": "Learnbeat",
-   "s": "Lessen en toetsen",
-   "i": "book",
-   "c": ""
-  },
-  {
-   "id": "stabicad",
-   "t": "Stabicad",
-   "s": "Installaties tekenen",
-   "i": "pen",
-   "c": ""
-  },
-  {
-   "id": "eplan",
-   "t": "EPLAN",
-   "s": "Schema’s en projecten",
-   "i": "plan",
-   "c": "",
-   "tr": "E"
-  },
-  {
-   "id": "bpv",
-   "t": "BPV / stage",
-   "s": "Stage en leerbedrijf",
-   "i": "case",
-   "c": ""
-  },
-  {
-   "id": "portfolio",
-   "t": "Portfolio",
-   "s": "Bewijs van je vakmanschap",
-   "i": "folder",
-   "c": ""
-  },
-  {
-   "id": "veiligheid",
-   "t": "Veiligheid, NEN 1010 en NEN 3140",
-   "s": "Veilig werken en normen",
-   "i": "shield",
-   "c": "sf",
-   "span": 1
-  },
-  {
-   "id": "kennis",
-   "t": "Technische kennisbank",
-   "s": "Formules, normen, uitleg",
-   "i": "search",
-   "c": ""
-  }
- ],
  "fotos": {},
  "urls": {
-  "learnbeat": "https://www.learnbeat.nl"
+  "learnbeat": "https://www.learnbeat.nl",
+  "veiligheid": "https://firdanl.sharepoint.com/:b:/r/sites/Besturingstechniek/Gedeelde%20documenten/08%20Installatie%20Techniek/Bestanden/Veilig%20werken%20volgens%20NEN%203140.pdf?d=wf862ee1538a44b1f9b302ec0b36b89b1&csf=1&web=1&e=RPHUhQ"
  },
  "materiaal": [
   [
@@ -304,7 +199,7 @@
     3,
     4
    ],
-   "#"
+   "https://firdanl.sharepoint.com/:b:/r/sites/Besturingstechniek/Gedeelde%20documenten/08%20Installatie%20Techniek/Bestanden/Veilig%20werken%20volgens%20NEN%203140.pdf?d=wf862ee1538a44b1f9b302ec0b36b89b1&csf=1&web=1&e=Nr8Ke6"
   ],
   [
    "kennis",
@@ -329,18 +224,6 @@
     4
    ],
    "#"
-  ],
-  [
-   "elektro",
-   "Veiligwerken NEN3140",
-   "pdf",
-   "E",
-   [
-    2,
-    3,
-    4
-   ],
-   "https://firdanl.sharepoint.com/:b:/r/sites/Besturingstechniek/Gedeelde%20documenten/08%20Installatie%20Techniek/Bestanden/Veilig%20werken%20volgens%20NEN%203140.pdf?d=wf862ee1538a44b1f9b302ec0b36b89b1&csf=1&web=1&e=RPHUhQ"
   ]
  ],
  "week": {
