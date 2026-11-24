@@ -52,7 +52,7 @@ h1{margin:0;font:700 clamp(40px,5.2vw,68px)/.98 "Barlow Condensed",sans-serif;le
 .btn.p{background:var(--el);border-color:var(--el);color:#04121c}
 .btn.p:hover{filter:brightness(1.12)}
 /* tegels */
-.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:170px 128px 128px 128px;gap:16px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(128px,auto);gap:16px}
 .tile{--c:var(--mx);position:relative;text-align:left;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 20px;border-radius:16px;border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(14px);overflow:hidden;transition:transform .25s,border-color .25s,background .25s,opacity .25s;animation:rise .55s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--n)*45ms)}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}}
 .tile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c)}
@@ -92,6 +92,7 @@ aside .s{color:var(--mut);margin:0 0 22px}
 .lv button b{display:block;font:600 24px "Barlow Condensed",sans-serif}
 .lv button span{color:var(--mut);font-size:13.5px}
 .lv button[aria-pressed=true]{border-color:var(--el);background:rgba(43,181,255,.12)}
+.tile.big{min-height:170px}
 .tile.fo,.tile.fo:hover{background-image:linear-gradient(90deg,rgba(7,26,58,.9),rgba(7,26,58,.3)),var(--img);background-size:cover;background-position:center}
 .chips2{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .chips2 button{padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--mut);transition:.2s}
@@ -129,7 +130,7 @@ aside .s{color:var(--mut);margin:0 0 22px}
 </div>
 
 <header>
-  <div class="brand"><i><svg class="i" style="width:20px;height:20px;color:#04121c" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></i><div>Team Techniek<small>Installatietechniek, mbo</small></div></div>
+  <div class="brand"><i><svg class="i" style="width:20px;height:20px;color:#04121c" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></i><div><span id="brandT">Team Techniek</span><small id="brandS">Installatietechniek, mbo</small></div></div>
   <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg><input id="q" type="search" placeholder="Zoek op de startpagina  (druk op /)" aria-label="Zoeken"></label>
   <button class="ibtn" id="photoBtn" title="Achtergrondfoto wijzigen" aria-label="Achtergrondfoto wijzigen"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m21 16-5-5-8 8"/></svg></button>
   <input type="file" id="file" accept="image/*" hidden>
@@ -138,8 +139,8 @@ aside .s{color:var(--mut);margin:0 0 22px}
 <main>
   <section class="hero">
     <div>
-      <h1>Welkom bij<br>Team Techniek</h1>
-      <p class="lead">Elektrotechnische en Werktuigbouwkundige Installaties. Kies je richting en niveau, dan pas ik de pagina aan.</p>
+      <h1 id="h1">Welkom bij<br>Team Techniek</h1>
+      <p class="lead" id="lead">Elektrotechnische en Werktuigbouwkundige Installaties. Kies je richting en niveau, dan pas ik de pagina aan.</p>
       <div class="ctrl">
         <div><label id="l1">Richting</label><div class="seg" id="segT" role="group" aria-labelledby="l1"></div></div>
         <div><label id="l2">Niveau</label><div class="seg" id="segL" role="group" aria-labelledby="l2"></div></div>
@@ -173,13 +174,16 @@ const IC = {
  folder:'<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
  shield:'<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
  search:'<circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/>',
+ doc:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+ users:'<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 5a3 3 0 0 1 0 6M18 20a6 6 0 0 0-3-5"/>',
+ star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
  arrow:'<path d="M7 17 17 7M8 7h9v9"/>', x:'<path d="M6 6l12 12M18 6 6 18"/>'
 };
 const svg = (n,c='') => `<svg class="i ${c}" viewBox="0 0 24 24" aria-hidden="true">${IC[n]}</svg>`;
 
-const TILES = [
- {id:'elektro',t:'Elektrotechniek',s:'Installaties, schakelingen, meten',i:'bolt',c:'el',big:1,tr:'E',items:['Schakelingen en installatieschema’s','Groepenverdeling en kabelberekening','Meten en testen','Domotica en sturing']},
- {id:'werktuig',t:'Werktuigbouwkunde',s:'Leidingwerk, verwarming, klimaat',i:'gear',c:'wb',big:1,tr:'W',items:['Leidingwerk en verbindingen','Verwarming en koeling','Ventilatie en luchtbehandeling','Regeltechniek en inregelen']},
+const TILES0 = [
+ {id:'elektro',t:'E-Installaties',s:'Installaties, schakelingen, meten',i:'bolt',c:'el',big:1,tr:'E',items:['Schakelingen en installatieschema’s','Groepenverdeling en kabelberekening','Meten en testen','Domotica en sturing']},
+ {id:'werktuig',t:'W-Installaties',s:'Leidingwerk, verwarming, klimaat',i:'gear',c:'wb',big:1,tr:'W',items:['Leidingwerk en verbindingen','Verwarming en koeling','Ventilatie en luchtbehandeling','Regeltechniek en inregelen']},
  {id:'niveau',t:'Niveau 2, 3 en 4',s:'Kies jouw niveau',i:'layers'},
  {id:'week',t:'Deze week',s:'Jouw planning',i:'cal',span:1},
  {id:'praktijk',t:'Praktijkopdrachten',s:'Opdrachten en beoordeling',i:'wrench',items:['Opdrachten per niveau','Werkplekinstructies','Beoordelingsformulier','Inleveren en feedback']},
@@ -191,6 +195,7 @@ const TILES = [
  {id:'veiligheid',t:'Veiligheid, NEN 1010 en NEN 3140',s:'Veilig werken en normen',i:'shield',c:'sf',span:1,items:['Veilig werken: de basis','NEN 1010: eisen aan installaties','NEN 3140: bedrijfsvoering','Onveilige situatie melden']},
  {id:'kennis',t:'Technische kennisbank',s:'Formules, normen, uitleg',i:'search',items:['Formules en tabellen','Normen en regelgeving','Uitlegvideo’s','Veelgestelde vragen']}
 ];
+const TILES = (I.tegels || TILES0).filter(t => !t.hidden).map(t => ({...t, items: t.items || (TILES0.find(d => d.id===t.id) || {}).items || []}));
 /* ===== Lesmateriaal =====
    Per regel: [onderdeel, titel, soort, richting, niveaus, link]
    onderdeel: elektro, werktuig, praktijk, learnbeat, stabicad, eplan, bpv, portfolio, veiligheid, kennis
@@ -216,8 +221,8 @@ const MATERIAAL = I.materiaal || [
  ['portfolio','Reflectieverslag: voorbeeld','pdf','B',[2,3,4],'#'],
  ['veiligheid','Veilig werken: de basis','video','B',[2,3,4],'#'],
  ['veiligheid','NEN 3140: werken onder spanning','presentatie','E',[3,4],'#'],
- ['kennis','Formuleblad elektrotechniek','pdf','E',[2,3,4],'#'],
- ['kennis','Formuleblad werktuigbouwkunde','pdf','W',[2,3,4],'#']
+ ['kennis','Formuleblad E-Installaties','pdf','E',[2,3,4],'#'],
+ ['kennis','Formuleblad W-Installaties','pdf','W',[2,3,4],'#']
 ];
 const pass = x => (state.track==='B'||x[3]==='B'||x[3]===state.track) && x[4].includes(state.level);
 const WEEK = I.week || {
@@ -226,7 +231,7 @@ const WEEK = I.week || {
  4:[['Ma','Ontwerp en berekeningen installatie','B'],['Di','EPLAN: stroomschema uitwerken','E'],['Wo','Hydraulisch inregelen','W'],['Do','Projectoverleg en planning','B'],['Vr','Portfolio-assessment voorbereiden','B']]
 };
 const LV = {2:'Basis vakmanschap: veilig werken en eenvoudige installaties.',3:'Zelfstandig vakman: uitvoeren, meten en tekenen.',4:'Technicus: ontwerpen, berekenen en coördineren.'};
-const TR = {B:'Beide',E:'Elektro',W:'Werktuigbouw'};
+const TR = {B:'Beide',E:(I.tekst||{}).e||'E-Installaties',W:(I.tekst||{}).w||'W-Installaties'};
 const state = {track:'B', level:3, soort:'alle', open:null};
 const $ = s => document.querySelector(s);
 
@@ -251,8 +256,8 @@ function renderGrid(){
   $('#grid').innerHTML = TILES.map((t,n) => {
     const hay = (t.t+' '+t.s+' '+(t.items||[]).join(' ')+' '+MATERIAAL.filter(x=>x[0]===t.id).map(x=>x[1]).join(' ')).toLowerCase();
     const off = (t.tr==='E'&&state.track==='W') || (t.tr==='W'&&state.track==='E') || (q && !hay.includes(q));
-    const big = t.big ? ' big span2' : (t.id==='veiligheid'||t.id==='week') ? ' span2' : '';
-    const chips = t.big ? `<div class="chips">${t.items.slice(0,3).map(i=>`<span>${i.split(' ').slice(0,2).join(' ')}</span>`).join('')}</div>` : '';
+    const big = t.big ? ' big span2' : t.span ? ' span2' : '';
+    const chips = t.big && t.items.length ? `<div class="chips">${t.items.slice(0,3).map(i=>`<span>${i.split(' ').slice(0,2).join(' ')}</span>`).join('')}</div>` : '';
     const cnt = MATERIAAL.filter(x=>x[0]===t.id&&pass(x)).length;
     const foto = (I.fotos||{})[t.id];
     const badge = (t.id==='niveau') ? `<span class="badge">Niveau ${state.level}</span>` : cnt ? `<span class="badge">${cnt} items</span>` : '';
@@ -261,7 +266,7 @@ function renderGrid(){
 }
 function openPanel(id){
   if(state.open!==id) state.soort='alle'; state.open=id;
-  const t = TILES.find(x=>x.id===id); const p = $('#panel');
+  const t = TILES.find(x=>x.id===id) || TILES0.find(x=>x.id===id); const p = $('#panel');
   p.style.setProperty('--c', t.c==='el'?'var(--el)':t.c==='wb'?'var(--wb)':t.c==='sf'?'var(--sf)':'var(--mx)');
   let body='';
   if(id==='niveau'){
@@ -271,15 +276,15 @@ function openPanel(id){
     body = `<ul class="list">${weekItems().map(w=>`<li><div class="${w[0]===WEEK[state.level][ti][0]?'now':''}"><span class="row"><span class="dag" style="color:${colorOf(w[2])}">${w[0]}</span>${w[1]}</span></div></li>`).join('')}</ul>`;
   } else {
     const all = MATERIAAL.filter(x=>x[0]===id);
-    if(!all.length){ body = `<ul class="list">${t.items.map(i=>`<li><a href="${URLS[id]}" target="_blank" rel="noopener" data-link="${URLS[id]}"><span>${i}</span>${svg('arrow')}</a></li>`).join('')}</ul>`; }
+    if(!all.length){ const u0=URLS[id]||'#'; body = t.items.length ? `<ul class="list">${t.items.map(i=>`<li><a href="${u0}" target="_blank" rel="noopener" data-link="${u0}"><span>${i}</span>${svg('arrow')}</a></li>`).join('')}</ul>` : `<ul class="list"><li><div>Nog geen materiaal toegevoegd</div></li></ul>`; }
     else {
       const m = all.filter(pass), soorten = [...new Set(m.map(x=>x[2]))], f = soorten.includes(state.soort) ? state.soort : 'alle', sh = m.filter(x=>f==='alle'||x[2]===f);
       body = soorten.length>1 ? `<div class="chips2">${['alle',...soorten].map(s=>`<button data-soort="${s}" aria-pressed="${f===s}">${s==='alle'?'Alles':SOORT[s]}</button>`).join('')}</div>` : '';
       body += `<ul class="list">${sh.length ? sh.map(x=>`<li><a href="${x[5]}" target="_blank" rel="noopener" data-link="${x[5]}"><span class="row"><span class="tag">${SOORT[x[2]]}</span>${x[1]}</span>${svg('arrow')}</a></li>`).join('') : `<li><div>Nog geen materiaal voor niveau ${state.level}</div></li>`}</ul>`;
     }
-    body += `<a class="btn p" href="${URLS[id]}" target="_blank" rel="noopener" data-link="${URLS[id]}">Open ${t.t.split(',')[0]}</a>`;
+    const u1=URLS[id]||'#'; body += `<a class="btn p" href="${u1}" target="_blank" rel="noopener" data-link="${u1}">Open ${t.t.split(',')[0]}</a>`;
   }
-  const sub = id==='week' ? `Niveau ${state.level}, ${TR[state.track].toLowerCase()}` : id==='niveau' ? `Nu gekozen: niveau ${state.level}` : t.s;
+  const sub = id==='week' ? `Niveau ${state.level}, ${TR[state.track]}` : id==='niveau' ? `Nu gekozen: niveau ${state.level}` : t.s;
   p.innerHTML = `<button class="ibtn x" data-close aria-label="Sluiten">${svg('x')}</button><div class="ic">${svg(t.i)}</div><h2>${t.t}</h2><p class="s">${sub}</p>${body}`;
   p.classList.add('on'); p.setAttribute('aria-hidden','false'); $('#veil').classList.add('on');
   p.querySelector('[data-close]').focus();
@@ -302,6 +307,15 @@ $('#q').addEventListener('input', renderGrid);
 $('#photoBtn').onclick = () => $('#file').click();
 $('#file').onchange = e => { const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ $('#bg').style.setProperty('--photo',`url("${r.result}")`); toast('Foto ingesteld voor deze sessie'); }; r.readAsDataURL(f); };
 if(PHOTO) $('#bg').style.setProperty('--photo',`url("${PHOTO}")`);
+(function(){ const T=I.tekst||{}, K=I.kleuren||{}, r=document.documentElement.style, e=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  if(T.brand) $('#brandT').textContent=T.brand; if(T.sub) $('#brandS').textContent=T.sub;
+  if(T.titel) $('#h1').innerHTML=T.titel.split('\n').map(e).join('<br>');
+  if(T.lead) $('#lead').textContent=T.lead; if(T.zoek) $('#q').placeholder=T.zoek;
+  ['el','wb','sf'].forEach(k=>{ if(/^#[0-9a-f]{6}$/i.test(K[k]||'')) r.setProperty('--'+k,K[k]); });
+  if(/^#[0-9a-f]{6}$/i.test(K.bg||'')){ const n=parseInt(K.bg.slice(1),16), c=[n>>16,(n>>8)&255,n&255], f=k=>c.map(v=>Math.round(v*k)).join(','), s=document.createElement('style');
+    s.textContent=`:root{--bg:${K.bg};--panel:rgba(${f(1.9)},.55);--panel2:rgba(${f(2.4)},.75)}.bg{background:linear-gradient(160deg,rgb(${f(1.7)}),${K.bg} 60%,rgb(${f(.6)}))}.bg::after{background:linear-gradient(90deg,rgba(${f(1)},.78),rgba(${f(1)},.3) 55%,rgba(${f(1)},.7)),linear-gradient(180deg,rgba(${f(1)},.15),rgba(${f(.7)},.92) 92%)}header{background:rgba(${f(1)},.78)}aside{background:rgba(${f(1.1)},.96)}#toast{background:rgb(${f(2)})}`;
+    document.head.appendChild(s); }
+})();
 update();
 </script>
 </body>
