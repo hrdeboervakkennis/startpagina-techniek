@@ -1,0 +1,429 @@
+{
+ "photo": "",
+ "tekst": {
+  "brand": "Team Installatie Techniek",
+  "sub": "Installatietechniek, mbo",
+  "titel": "Welkom bij\nTeam Techniek",
+  "lead": "E-Installaties en W-Installaties. Kies je richting en niveau, dan pas ik de pagina aan.",
+  "zoek": "Zoek op de startpagina  (druk op /)"
+ },
+ "kleuren": {
+  "el": "#2bb5ff",
+  "wb": "#ff8a1f",
+  "sf": "#ffd23f",
+  "bg": "#071a3a"
+ },
+ "tegels": [
+  {
+   "id": "elektro",
+   "t": "Elektrotechniek",
+   "s": "Installaties, schakelingen, meten",
+   "i": "bolt",
+   "c": "el",
+   "big": 1,
+   "tr": "E"
+  },
+  {
+   "id": "werktuig",
+   "t": "Werktuigbouwkunde",
+   "s": "Leidingwerk, verwarming, klimaat",
+   "i": "gear",
+   "c": "wb",
+   "big": 1,
+   "tr": "W"
+  },
+  {
+   "id": "niveau",
+   "t": "Niveau 2, 3 en 4",
+   "s": "Kies jouw niveau",
+   "i": "layers",
+   "c": ""
+  },
+  {
+   "id": "week",
+   "t": "Deze week",
+   "s": "Jouw planning",
+   "i": "cal",
+   "c": "",
+   "span": 1
+  },
+  {
+   "id": "praktijk",
+   "t": "Praktijkopdrachten",
+   "s": "Opdrachten en beoordeling",
+   "i": "wrench",
+   "c": ""
+  },
+  {
+   "id": "learnbeat",
+   "t": "Learnbeat",
+   "s": "Lessen en toetsen",
+   "i": "book",
+   "c": ""
+  },
+  {
+   "id": "stabicad",
+   "t": "Stabicad",
+   "s": "Installaties tekenen",
+   "i": "pen",
+   "c": ""
+  },
+  {
+   "id": "eplan",
+   "t": "EPLAN",
+   "s": "Schema’s en projecten",
+   "i": "plan",
+   "c": "",
+   "tr": "E"
+  },
+  {
+   "id": "bpv",
+   "t": "BPV / stage",
+   "s": "Stage en leerbedrijf",
+   "i": "case",
+   "c": ""
+  },
+  {
+   "id": "portfolio",
+   "t": "Portfolio",
+   "s": "Bewijs van je vakmanschap",
+   "i": "folder",
+   "c": ""
+  },
+  {
+   "id": "veiligheid",
+   "t": "Veiligheid, NEN 1010 en NEN 3140",
+   "s": "Veilig werken en normen",
+   "i": "shield",
+   "c": "sf",
+   "span": 1
+  },
+  {
+   "id": "kennis",
+   "t": "Technische kennisbank",
+   "s": "Formules, normen, uitleg",
+   "i": "search",
+   "c": ""
+  }
+ ],
+ "fotos": {},
+ "urls": {
+  "learnbeat": "https://www.learnbeat.nl"
+ },
+ "materiaal": [
+  [
+   "elektro",
+   "Lampschakelingen: theorie en schema",
+   "pdf",
+   "E",
+   [
+    2
+   ],
+   "#"
+  ],
+  [
+   "elektro",
+   "Groepenschema opstellen",
+   "presentatie",
+   "E",
+   [
+    3
+   ],
+   "#"
+  ],
+  [
+   "elektro",
+   "Kabelberekening stap voor stap",
+   "video",
+   "E",
+   [
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "elektro",
+   "Opdracht: meterkast uitbreiden",
+   "opdracht",
+   "E",
+   [
+    3
+   ],
+   "#"
+  ],
+  [
+   "elektro",
+   "Opdracht: installatieontwerp woning",
+   "opdracht",
+   "E",
+   [
+    4
+   ],
+   "#"
+  ],
+  [
+   "werktuig",
+   "Buis buigen en koppelen",
+   "video",
+   "W",
+   [
+    2
+   ],
+   "#"
+  ],
+  [
+   "werktuig",
+   "Leidingwerk en afpersen",
+   "pdf",
+   "W",
+   [
+    3
+   ],
+   "#"
+  ],
+  [
+   "werktuig",
+   "Hydraulisch inregelen",
+   "presentatie",
+   "W",
+   [
+    4
+   ],
+   "#"
+  ],
+  [
+   "werktuig",
+   "Opdracht: radiatorgroep aansluiten",
+   "opdracht",
+   "W",
+   [
+    2,
+    3
+   ],
+   "#"
+  ],
+  [
+   "praktijk",
+   "Beoordelingsformulier praktijk",
+   "pdf",
+   "B",
+   [
+    2,
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "praktijk",
+   "Werkplekinstructie veilig werken",
+   "pdf",
+   "B",
+   [
+    2
+   ],
+   "#"
+  ],
+  [
+   "learnbeat",
+   "Lesmateriaal openen in Learnbeat",
+   "link",
+   "B",
+   [
+    2,
+    3,
+    4
+   ],
+   "https://www.learnbeat.nl"
+  ],
+  [
+   "stabicad",
+   "Eerste tekening in Stabicad",
+   "video",
+   "B",
+   [
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "eplan",
+   "Eerste project in EPLAN",
+   "video",
+   "E",
+   [
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "bpv",
+   "Stagelogboek (sjabloon)",
+   "pdf",
+   "B",
+   [
+    2,
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "portfolio",
+   "Reflectieverslag: voorbeeld",
+   "pdf",
+   "B",
+   [
+    2,
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "veiligheid",
+   "Veilig werken: de basis",
+   "video",
+   "B",
+   [
+    2,
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "veiligheid",
+   "NEN 3140: werken onder spanning",
+   "presentatie",
+   "E",
+   [
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "kennis",
+   "Formuleblad elektrotechniek",
+   "pdf",
+   "E",
+   [
+    2,
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "kennis",
+   "Formuleblad werktuigbouwkunde",
+   "pdf",
+   "W",
+   [
+    2,
+    3,
+    4
+   ],
+   "#"
+  ],
+  [
+   "elektro",
+   "Veiligwerken NEN3140",
+   "pdf",
+   "E",
+   [
+    2,
+    3,
+    4
+   ],
+   "https://firdanl.sharepoint.com/:b:/r/sites/Besturingstechniek/Gedeelde%20documenten/08%20Installatie%20Techniek/Bestanden/Veilig%20werken%20volgens%20NEN%203140.pdf?d=wf862ee1538a44b1f9b302ec0b36b89b1&csf=1&web=1&e=RPHUhQ"
+  ]
+ ],
+ "week": {
+  "2": [
+   [
+    "Ma",
+    "Veilig werken: werkplek en PBM",
+    "B"
+   ],
+   [
+    "Di",
+    "Lampschakelingen bekabelen",
+    "E"
+   ],
+   [
+    "Wo",
+    "Buis buigen en koppelen",
+    "W"
+   ],
+   [
+    "Do",
+    "Praktijkopdracht 2.1 uitvoeren",
+    "B"
+   ],
+   [
+    "Vr",
+    "Reflectie in je portfolio",
+    "B"
+   ]
+  ],
+  "3": [
+   [
+    "Ma",
+    "Groepenschema opstellen",
+    "E"
+   ],
+   [
+    "Di",
+    "Leidingwerk verbinden en afpersen",
+    "W"
+   ],
+   [
+    "Wo",
+    "Stabicad: installatietekening",
+    "B"
+   ],
+   [
+    "Do",
+    "Meten en keuren (NEN 3140)",
+    "E"
+   ],
+   [
+    "Vr",
+    "Praktijkopdracht 3.2 inleveren",
+    "B"
+   ]
+  ],
+  "4": [
+   [
+    "Ma",
+    "Ontwerp en berekeningen installatie",
+    "B"
+   ],
+   [
+    "Di",
+    "EPLAN: stroomschema uitwerken",
+    "E"
+   ],
+   [
+    "Wo",
+    "Hydraulisch inregelen",
+    "W"
+   ],
+   [
+    "Do",
+    "Projectoverleg en planning",
+    "B"
+   ],
+   [
+    "Vr",
+    "Portfolio-assessment voorbereiden",
+    "B"
+   ]
+  ]
+ }
+}
